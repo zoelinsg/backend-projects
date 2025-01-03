@@ -7,6 +7,7 @@ from rest_framework import generics, permissions
 from .models import UserProfile
 from .serializers import UserProfileSerializer
 from django.contrib.auth import views as auth_views
+from django.views.decorators.csrf import csrf_exempt
 
 # 首頁視圖
 def home(request):
@@ -31,6 +32,7 @@ def reader_dashboard(request):
     return render(request, 'library/reader_dashboard.html')
 
 # 登入視圖
+@csrf_exempt
 def login_user(request):
     if request.method == 'POST':  # 檢查是否提交登入表單
         username = request.POST['username']  # 從 POST 請求中取得使用者名稱
@@ -53,6 +55,7 @@ def logout_user(request):
     return redirect('home')  # 登出後重定向到首頁
 
 # 使用者註冊視圖
+@csrf_exempt
 def register_user(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)  # 使用提交的資料建立註冊表單
@@ -81,6 +84,7 @@ class UserProfileView(generics.RetrieveUpdateAPIView):
         profile, created = UserProfile.objects.get_or_create(user=user)
         return profile
 
+@csrf_exempt
 @login_required
 def user_profile_view(request):
     user = request.user

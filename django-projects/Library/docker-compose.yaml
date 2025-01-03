@@ -11,12 +11,14 @@ services:
 
   backend:
     container_name: library_django
-    image: zoe-library/python:1.0.1
+    image: zoe-library/python:1.0.0
     ports:
-      - "8000:8000"
+      - "8200:8000"
     volumes:
-      - /etc/nginx/html/staticfiles:/opt/web/staticfiles
-      - library_media:/opt/web/media
+      - /etc/nginx/html/library/staticfiles/admin:/opt/web/staticfiles/admin
+      - /etc/nginx/html/library/staticfiles:/opt/web/static
+      - /opt/web/library/db.sqlite3:/opt/web/db.sqlite3
+      - /opt/web/library/media:/opt/web/media
     <<: *common-config
 
 networks:
@@ -25,5 +27,5 @@ networks:
     driver: bridge
 
 volumes:
-  library_media:
-    name: library_media
+  library_db:
+    name: library_db

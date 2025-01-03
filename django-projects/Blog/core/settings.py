@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t)w%x%unv1&3e1=%j)8y^@!u2bw5g_9&lcv&87j(!s103p)%!e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['zoe-blog.sunflowx.com', 'www.zoe-blog.sunflowx.com']
 

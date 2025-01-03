@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+j$)jt=81d98xkt0!&e-ap)tw_wzvcp7iyb0$@29@z=!zfd0@9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']  # 添加 127.0.0.1 和 localhost 到 ALLOWED_HOSTS
+ALLOWED_HOSTS = ['zoe-ecommerce.sunflowx.com', 'www.zoe-ecommerce.sunflowx.com']
 
 
 # Application definition
@@ -155,3 +155,9 @@ LOGOUT_REDIRECT_URL = '/'  # 指定登出成功後的重定向頁面
 PAYPAL_MODE = os.getenv("PAYPAL_MODE", "sandbox").strip()  # sandbox 或 live，去除多餘空格
 PAYPAL_CLIENT_ID = os.getenv("PAYPAL_CLIENT_ID", "ATgwyRWUksax9X-6iGkYs3VTDnfFW8eDoZh2DrOujebtjuE85vjBWTplxjpXprqelALrzKjdAso6A0rm")
 PAYPAL_CLIENT_SECRET = os.getenv("PAYPAL_CLIENT_SECRET", "EPrmAJ1tiLArzNJT9Ja10HixKX4Uizn9K58MJcuRnMXB-CExPpkbLGGxnH0_7SzVMhe-c3PaKJPaE71z")
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://zoe-ecommerce.sunflowx.com',  # 添加您的網域名稱
+]
+
+CSRF_COOKIE_DOMAIN = None
