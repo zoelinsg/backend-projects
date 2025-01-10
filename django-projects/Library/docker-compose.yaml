@@ -11,7 +11,7 @@ services:
 
   backend:
     container_name: library_django
-    image: zoe-library/python:1.0.0
+    image: zoe-library/python:1.0.1
     ports:
       - "8200:8000"
     volumes:
@@ -19,6 +19,8 @@ services:
       - /etc/nginx/html/library/staticfiles:/opt/web/static
       - /opt/web/library/db.sqlite3:/opt/web/db.sqlite3
       - /opt/web/library/media:/opt/web/media
+    env_file:
+      - .env
     <<: *common-config
 
 networks:
