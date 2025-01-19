@@ -1,0 +1,16 @@
+<!-- filepath: /c:/Users/zoe.lin/Desktop/web-projects/flask-projects/medical-consultation/src/templates/submit.html -->
+<!-- 檔案名稱: templates/submit.html -->
+<!-- 用途: 症狀提交表單 -->
+
+{% extends "base.html" %}
+
+{% block title %}醫療問診 - 提交症狀{% endblock %}
+
+{% block content %}
+    <h1>醫療問診</h1>
+    <form action="/api/health/" method="POST">
+        <label for="symptoms">請描述您的症狀：</label>
+        <textarea id="symptoms" name="symptoms" rows="4" cols="50" required></textarea>
+        <button type="submit">提交</button>
+    </form>
+{% endblock %}

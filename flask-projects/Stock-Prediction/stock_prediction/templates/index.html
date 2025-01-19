@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}首頁{% endblock %}
+
+{% block content %}
+<h2>歡迎來到股市預測系統</h2>
+<p>輸入股票代號以進行預測，例如：AAPL</p>
+<form action="/predict" method="get">
+    <label for="ticker">股票代號：</label>
+    <input type="text" id="ticker" name="ticker" required>
+    <button type="submit">預測</button>
+</form>
+{% if history_data %}
+<h3>{{ ticker }} 的股票數據</h3>
+<img src="{{ url_for('static', filename=chart_path) }}" alt="股票歷史數據圖表">
+<p><strong>當前的股票數值：</strong>{{ current_price }}</p>
+<p><strong>未來一個月價格：</strong>{{ future_price }}</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}音樂推薦結果{% endblock %}
+
+{% block content %}
+<h1>音樂推薦結果</h1>
+<h2>類型: {{ genre }}</h2>
+<ul>
+    {% for track in recommendations %}
+    <li>
+        <strong>{{ track.name }}</strong> by {{ track.artist }}<br>
+        <a href="{{ track.url }}" target="_blank">播放</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="/">返回</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}音樂推薦系統{% endblock %}
+
+{% block content %}
+<h1>音樂推薦系統</h1>
+<form action="/recommend" method="get">
+    <label for="genre">輸入音樂類型:</label>
+    <input type="text" id="genre" name="genre" required>
+    <button type="submit">推薦音樂</button>
+</form>
+{% endblock %}
