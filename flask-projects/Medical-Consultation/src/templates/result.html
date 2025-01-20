@@ -1,0 +1,14 @@
+<!-- filepath: /c:/Users/zoe.lin/Desktop/web-projects/flask-projects/medical-consultation/src/templates/result.html -->
+<!-- 檔案名稱: templates/result.html -->
+<!-- 用途: 顯示診斷結果 -->
+
+{% extends "base.html" %}
+
+{% block title %}診斷結果{% endblock %}
+
+{% block content %}
+    <h1>診斷結果</h1>
+    <p>根據您的描述，我們的建議是：</p>
+    <p><strong>{{ diagnosis }}</strong></p>
+    <a href="/">返回提交頁面</a>
+{% endblock %}
